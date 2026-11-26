@@ -10,68 +10,188 @@
 <meta property="og:description" content="Web iseng buatan fans. Bukan situs resmi.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jeketoy.lol/">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#09090b">
 <style>
-@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/plusjakartasans-latin.woff2) format("woff2")}
-:root{--bg:#fff;--ink:#0a0a0a;--mute:#737373;--line:#ececec}
-@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--ink:#f5f5f5;--mute:#8f8f8f;--line:#222}}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/inter-tight-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/inter-tight-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:100 800;font-display:swap;src:url(fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2")}
+:root{color-scheme:dark;--bg:#09090b;--ink:#f5f5f7;--mute:#8b8b93;--line:rgba(255,255,255,.1);--blue:#224aa7;--blue-t:#7d9be6;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--pad:clamp(18px,5vw,64px);--max:1240px;--spring:cubic-bezier(.34,1.56,.64,1);--out:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-main{max-width:360px;min-height:100vh;min-height:100dvh;margin:0 auto;padding:32px 24px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center}
-h1{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
-.baris{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none}
-nav{border-bottom:1px solid var(--line)}
-.single{display:block;margin:0 0 18px;padding:11px 14px;border:1px solid var(--line);border-radius:14px;color:inherit;text-decoration:none;font-size:13.5px;line-height:1.45}.single small{display:block;font-size:11px;color:var(--mute);margin-top:2px}.single:hover{border-color:var(--ink)}
-.baris img{width:28px;height:28px;flex:none}
-.baris div{flex:1;min-width:0}
-.baris b{display:block;font-weight:600;line-height:1.35}
-.baris small{display:block;font-size:12px;line-height:1.4;color:var(--mute)}
-.baris em{flex:none;font-style:normal;font-size:12px;color:var(--mute)}
-a.baris em{font-size:18px;color:var(--ink);transition:transform .15s}
-a.baris:hover em,a.baris:focus-visible em{transform:translateX(3px)}
-.baris.nanti img{filter:grayscale(1);opacity:.5}
-.baris.nanti b{color:var(--mute)}
-footer{margin-top:20px;color:var(--mute);font-size:12px}
-footer a{color:inherit}
-.bawah{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-.bahasa button{font:inherit;border:0;background:none;color:var(--mute);padding:4px 0 4px 10px;cursor:pointer}
-.bahasa button.on{color:var(--ink);font-weight:700}
-@media (prefers-reduced-motion:reduce){a.baris em{transition:none}}
-.disc{margin-top:14px;font-size:12.5px;line-height:1.6;color:var(--mute);text-align:left}.disc summary{cursor:pointer;font-weight:700;color:var(--ink)}.disc p{margin:10px 0 0}.disc b{color:var(--ink)}.disc a{color:var(--ink);text-decoration:underline}
-.peduli{margin-top:28px;text-align:left;font-size:13.5px;line-height:1.55}.peduli h2{font-size:17px;margin:0 0 4px;color:var(--ink)}.peduli .pd-sub{color:var(--mute);margin:0 0 6px}.peduli ul{list-style:none;margin:8px 0 0;padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}.peduli li{padding:12px 14px;border-top:1px solid var(--line)}.peduli li:first-child{border-top:0}.peduli .pd-k{display:flex;justify-content:space-between;gap:8px;align-items:center}.peduli b{color:var(--ink)}.peduli em{font-style:normal;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mute);white-space:nowrap}.peduli li p{margin:4px 0 6px;color:var(--mute)}.peduli .pd-l{display:flex;flex-wrap:wrap;gap:6px}.peduli .pd-l a{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none}.peduli .pd-l a:hover{border-color:var(--ink)}.peduli .pd-ajak{margin:10px 0 0;color:var(--mute)}.peduli .pd-kecil{margin:6px 0 0;font-size:11px;color:var(--mute);opacity:.85}.pd-home{margin:22px 0 0;font-size:12.5px}.pd-home h2{font-size:13.5px}.pd-home ul{border:0;border-radius:0;border-bottom:1px solid var(--line)}.pd-home li{padding:10px 0;border-top:1px solid var(--line)}.pd-home li:first-child{border-top:1px solid var(--line)}
-.hidup{margin-top:20px;padding:12px 14px;border:1px dashed #a86400;border-radius:14px;font-size:13px;line-height:1.55;text-align:left}.hidup a{font-weight:700;text-decoration:underline;color:inherit}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+a{color:inherit;text-decoration:none}
+/* cahaya biru + garis bantu samar */
+.cahaya{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(42vw 36vw at 100% 100%,rgba(34,74,167,.55),transparent 70%),radial-gradient(30vw 24vw at 0% 0%,rgba(34,74,167,.22),transparent 70%);animation:napas 9s ease-in-out infinite alternate}
+@keyframes napas{to{opacity:.6;transform:scale(1.05)}}
+.grid{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:calc((100% - 2*var(--pad))/4) 100%;background-position:var(--pad) 0;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
+.isi{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--blue-t)}
+/* kepala */
+.bar{position:sticky;top:0;z-index:9;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+.bar.kecil{background:rgba(9,9,11,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.bar .isi{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;padding-bottom:22px;transition:padding .5s var(--spring)}
+.bar.kecil .isi{padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;line-height:1.05;letter-spacing:-.01em}
+.logo svg{width:34px;height:34px;color:var(--blue-t);animation:jatuh 1s var(--spring) both}
+@keyframes jatuh{0%{transform:translateY(-30px) scale(.6);opacity:0}}
+.menu{display:flex;gap:clamp(18px,3vw,44px);align-items:flex-start}
+.menu a{display:block;font-size:14px;line-height:1.3;color:var(--ink);transition:color .2s,transform .35s var(--spring)}
+.menu a span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--blue-t);margin-bottom:3px}
+.menu a:hover{transform:translateY(-2px);color:#fff}
+.bahasa{display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.bahasa button{font:500 12px var(--sans);border:0;background:none;color:var(--mute);padding:6px 11px;border-radius:999px;cursor:pointer;transition:color .2s,background .2s}
+.bahasa button.on{background:var(--ink);color:#09090b}
+/* hero */
+.hero{position:relative;padding:clamp(40px,8vw,110px) 0 0}
+.hero h1{font-weight:400;font-size:clamp(46px,10.4vw,150px);line-height:.9;letter-spacing:-.04em}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 .ln:nth-child(2){padding-left:12%}.hero h1 .ln:nth-child(3){padding-left:28%}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-right:.18em}
+.hero h1 .w>span{display:inline-block;transform:translateY(108%);transition:transform 1s var(--out)}
+.hero.on h1 .w>span{transform:none}
+.hero h1 .b>span{font-weight:600;letter-spacing:-.055em}
+.hero h1 .t>span{font-weight:100;text-transform:uppercase;letter-spacing:-.02em}
+.hero h1 .a>span{color:var(--blue-t)}
+.rel{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;margin-top:clamp(28px,5vw,56px)}
+.rel::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.rel>*{position:relative}
+.rel .kiri{font-size:14px;display:flex;align-items:center;gap:10px;align-self:end;padding-bottom:6px;background:var(--bg);padding-right:14px;justify-self:start}
+.rel .kiri i{font-style:normal;color:var(--blue-t);display:inline-block;animation:turun 2s ease-in-out infinite}
+@keyframes turun{50%{transform:translateY(4px)}}
+.rel p{font-size:14.5px;color:#c9c9cf;max-width:30em;justify-self:end;align-self:start;padding-top:34px;line-height:1.6}
+.rel .garis{position:absolute;right:0;top:50%;width:46%;height:2px;background:var(--ink);transform-origin:right;transform:scaleX(0);transition:transform 1.2s var(--out) .5s}
+.hero.on .rel .garis{transform:scaleX(1)}
+.cincin{width:clamp(130px,15vw,170px);height:auto;display:block;filter:drop-shadow(0 0 40px rgba(34,74,167,.7))}
+.cincin .putar{transform-origin:100px 100px;animation:putar 22s linear infinite}
+@keyframes putar{to{transform:rotate(360deg)}}
+.cincin text{font:500 13px var(--mono);letter-spacing:.14em;fill:#fff;text-transform:uppercase}
+.cincin:hover .putar{animation-duration:6s}
+/* angka */
+.angka{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(48px,8vw,96px);border-top:1px solid var(--line)}
+.angka div{padding:20px 0 8px;border-left:1px solid var(--line);padding-left:20px}
+.angka div:first-child{border-left:0;padding-left:0}
+.angka b{display:block;font-size:clamp(40px,6vw,76px);font-weight:100;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.angka small{display:block;margin-top:8px}
+/* pita MV */
+.single{display:block;position:relative;z-index:1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:clamp(40px,6vw,72px);overflow:hidden;white-space:nowrap;color:var(--ink)}
+.single .jalan{display:inline-flex;gap:64px;padding:15px 0;animation:jalan 36s linear infinite;font-size:14px}
+.single .jalan>span{display:inline-flex;gap:16px;align-items:center}
+.single .jalan b{font-weight:600}
+.single .jalan small{font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+.single:hover .jalan{animation-play-state:paused}
+.single:hover{color:#fff;background:rgba(34,74,167,.12)}
+@keyframes jalan{to{transform:translateX(-50%)}}
+/* daftar proyek */
+.proyek{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(40px,6vw,80px)}
+.kepala{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;margin-bottom:28px}
+.kepala h2{font-size:clamp(30px,4.4vw,58px);line-height:1;letter-spacing:-.04em;font-weight:600}
+.kepala h2 span{font-weight:100;text-transform:uppercase;letter-spacing:-.02em}
+.kepala p{color:var(--mute);font-size:14px;justify-self:end;max-width:26em}
+nav{border-top:1px solid var(--line)}
+.baris{display:grid;grid-template-columns:70px 1fr 1.1fr auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);position:relative;color:inherit;transition:padding .45s var(--spring)}
+.baris .no{font-family:var(--mono);font-size:11px;color:var(--blue-t)}
+.baris b{font-size:clamp(28px,4vw,52px);font-weight:100;text-transform:uppercase;letter-spacing:-.03em;line-height:1}
+.baris small{font-size:14px;color:var(--mute);line-height:1.55;max-width:30em}
+.baris em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--mute);white-space:nowrap}
+.baris img{display:none}
+a.baris b{font-weight:600;text-transform:none;letter-spacing:-.05em}
+a.baris em{display:inline-flex;align-items:center;gap:14px;color:var(--ink);font-family:var(--sans);font-size:15px}
+a.baris em::before{content:"";width:46px;height:1px;background:var(--ink);transition:width .45s var(--spring)}
+a.baris em::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink);order:-1;transition:background .3s,box-shadow .3s}
+a.baris::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 140% at 85% 50%,rgba(34,74,167,.35),transparent 70%);opacity:0;transition:opacity .5s;pointer-events:none}
+a.baris:hover{padding-left:14px}
+a.baris:hover::after{opacity:1}
+a.baris:hover em::before{width:80px}
+a.baris:hover em::after{background:var(--blue-t);box-shadow:0 0 16px var(--blue-t)}
+.baris.nanti b{color:#d6d6db}
+/* muncul */
+.muncul{opacity:0;transform:translateY(24px);transition:opacity .9s var(--out),transform 1s var(--out);transition-delay:var(--d,0s)}
+.muncul.on{opacity:1;transform:none}
+/* bawah */
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:clamp(48px,7vw,96px) 0 calc(28px + env(safe-area-inset-bottom))}
+footer .besar{font-size:clamp(34px,6vw,84px);line-height:.98;letter-spacing:-.045em;font-weight:600}
+footer .besar span{font-weight:100;text-transform:uppercase;letter-spacing:-.02em}
+footer .besar a{display:inline-block;border-bottom:2px solid var(--ink);transition:transform .4s var(--spring),color .2s,border-color .2s}
+footer .besar a:hover{transform:translateX(8px);color:var(--blue-t);border-color:var(--blue-t)}
+.bawah{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--mute)}
+.bawah a{color:var(--ink)}
+.disc{margin-top:28px;font-size:13.5px;line-height:1.65;color:var(--mute)}.disc summary{cursor:pointer;color:var(--ink);font-weight:500}.disc p{margin:10px 0 0;max-width:48em}.disc b{color:var(--ink);font-weight:600}.disc a{color:var(--ink);text-decoration:underline}
+.peduli{margin-top:56px;font-size:14px;line-height:1.6}
+.peduli h2{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--blue-t);margin:0 0 14px;letter-spacing:.04em}
+.peduli ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.peduli li{padding:18px 20px 18px 0}.peduli li+li{border-left:1px solid var(--line);padding-left:20px}
+.peduli b{font-size:19px;font-weight:600;letter-spacing:-.02em}.peduli li p{margin:6px 0 12px;color:var(--mute)}
+.peduli .pd-l{display:flex;flex-wrap:wrap;gap:6px}.peduli .pd-l a{font-size:12px;padding:3px 11px;border-radius:999px;border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s}.peduli .pd-l a:hover{background:var(--ink);color:#09090b;border-color:var(--ink)}
+.peduli .pd-ajak{margin:14px 0 0;color:var(--mute)}.peduli .pd-ajak b{font-size:inherit}.peduli .pd-kecil{margin:6px 0 0;font-size:11.5px;color:#6b6b73}
+:focus-visible{outline:1px solid var(--blue-t);outline-offset:4px}
+@media (max-width:820px){
+  .menu{display:none}
+  .hero h1 .ln:nth-child(2){padding-left:6%}.hero h1 .ln:nth-child(3){padding-left:12%}
+  .rel{grid-template-columns:1fr;justify-items:start}
+  .rel::before,.rel .garis{display:none}
+  .rel .cincin{order:-1}
+  .rel p{justify-self:start;padding-top:0}
+  .angka{grid-template-columns:repeat(2,1fr)}
+  .angka div:nth-child(3){border-left:0;padding-left:0}
+  .kepala{grid-template-columns:1fr}.kepala p{justify-self:start}
+  .baris{grid-template-columns:44px 1fr;gap:8px 12px;padding:22px 0}
+  .baris small,.baris em{grid-column:2}
+  .peduli ul{grid-template-columns:1fr}.peduli li+li{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+  .bawah{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.muncul{opacity:1;transform:none}.hero h1 .w>span{transform:none}.hero .rel .garis{transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main>
-  <h1>jeketoy</h1>
-  <a class="single" id="single" href="https://youtu.be/U1BDaJkCRKQ" target="_blank" rel="noopener noreferrer"><span>🎧 MV <b>Ayo Senyumlah</b> udah tayang, jangan lupa streaming ↗</span><small>ajakan fans, bukan iklan berbayar</small></a>
+<div class="cahaya" aria-hidden="true"></div>
+<header class="bar" id="bar"><div class="isi">
+  <a class="logo" href="#top" aria-label="jeketoy"><svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="17" cy="17" r="15.5"/><path d="M19.5 9v11.5a4 4 0 0 1-7.5 2"/><circle cx="19.5" cy="5.6" r="1.3" fill="currentColor" stroke="none"/></svg><span>jeketoy.<br>fan std</span></a>
+  <div class="menu"><a href="#proyek"><span>01</span><i data-t="m1" style="font-style:normal">semua proyek</i></a><a href="https://topjkt48.jeketoy.lol/"><span>02</span>top 10</a><a href="#kontak"><span>03</span><i data-t="m3" style="font-style:normal">colek aku</i></a></div>
+  <div class="bahasa" role="group" aria-label="Bahasa / Language"><button type="button" data-l="id">ID</button><button type="button" data-l="en">EN</button><button type="button" data-l="ja" lang="ja">日本語</button></div>
+</div></header>
+<section class="hero" id="top"><div class="grid" aria-hidden="true"></div><div class="isi">
+  <h1 id="judul">jeketoy</h1>
+  <div class="rel">
+    <a class="kiri" href="#proyek"><i>↓</i><span data-t="lihat">Lihat proyeknya di bawah</span></a>
+    <svg class="cincin" viewBox="0 0 200 200" role="img" aria-label="jeketoy"><defs><path id="cc" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/></defs><circle cx="100" cy="100" r="98" fill="#224aa7"/><g class="putar"><text><textPath href="#cc" textLength="436" lengthAdjust="spacing" data-t="cincin">jeketoy · buatan fans · tidak resmi ·</textPath></text></g><g transform="translate(83 83)" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="17" cy="17" r="15.5"/><path d="M19.5 9v11.5a4 4 0 0 1-7.5 2"/><circle cx="19.5" cy="5.6" r="1.3" fill="#fff" stroke="none"/></g></svg>
+    <p><span data-t="lede1">Mainan kecil buatan fans JKT48.</span> <span data-t="lede2">Iseng, gratis, dan nggak ada yang jualan.</span> <span data-t="k3">gratis · tanpa iklan · tanpa pelacak</span></p>
+    <span class="garis" aria-hidden="true"></span>
+  </div>
+  <div class="angka">
+    <div><b data-n="5">5</b><small class="lbl" data-t="s1">proyek</small></div>
+    <div><b data-n="1">1</b><small class="lbl" data-t="s2">sudah bisa dibuka</small></div>
+    <div><b data-n="0">0</b><small class="lbl" data-t="s3">iklan</small></div>
+    <div><b data-n="3">3</b><small class="lbl" data-t="s4">bahasa</small></div>
+  </div>
+</div></section>
+<a class="single" id="single" href="https://youtu.be/U1BDaJkCRKQ" target="_blank" rel="noopener noreferrer"></a>
+<main class="isi proyek" id="proyek">
+  <div class="kepala muncul"><h2><span data-t="h2a">Semua proyek,</span><br><i data-t="h2b" style="font-style:normal">satu halaman.</i></h2><p><span class="lbl" data-t="h2k">5 proyek · 1 live</span></p></div>
   <nav>
-    <a class="baris" href="https://topjkt48.jeketoy.lol/"><img src="ikon/top10.svg" alt="" width="28" height="28"><div><b data-t="top">Top 10</b><small data-t="top.d">JKT48 versi kamu dalam 10 pilihan. Susun, pamerin, siap diprotes.</small></div><em aria-hidden="true">→</em></a>
-    <div class="baris nanti"><img src="ikon/arsip.svg" alt="" width="28" height="28"><div><b data-t="arsip">Arsip show</b><small data-t="arsip.d">Dari sebelum RE:BOOST sampai FIGHT!: show apa aja, siapa yang tampil.</small></div><em data-t="nanti">segera hadir</em></div>
-    <div class="baris nanti"><img src="ikon/radar.svg" alt="" width="28" height="28"><div><b data-t="radar">Radar tiket</b><small data-t="radar.d">Jadwal show dan status tiket sekali lirik, biar nggak ketinggalan.</small></div><em data-t="nanti">segera hadir</em></div>
-    <div class="baris nanti"><img src="ikon/halu.svg" alt="" width="28" height="28"><div><b data-t="halu">Wota Halu</b><small data-t="halu.d">Video call, invoice, semuanya halu. Dompet dijamin aman.</small></div><em data-t="nanti">segera hadir</em></div>
-    <div class="baris nanti"><img src="ikon/miu.svg" alt="" width="28" height="28"><div><b data-t="miu">miuru.notch</b><small data-t="miu.d">Kucing item nongkrong di atas layarmu: lirik, jadwal, sampai waktu salat.</small></div><em data-t="nanti">segera hadir</em></div>
+    <a class="baris muncul" href="https://topjkt48.jeketoy.lol/"><span class="no">01</span><b data-t="top">Top 10</b><small data-t="top.d">JKT48 versi kamu dalam 10 pilihan. Susun, pamerin, siap diprotes.</small><em data-t="live">buka</em></a>
+    <div class="baris nanti muncul"><span class="no">02</span><b data-t="arsip">Arsip show</b><small data-t="arsip.d">Dari sebelum RE:BOOST sampai FIGHT!: show apa aja, siapa yang tampil.</small><em data-t="nanti">segera hadir</em></div>
+    <div class="baris nanti muncul"><span class="no">03</span><b data-t="radar">Radar tiket</b><small data-t="radar.d">Jadwal show dan status tiket sekali lirik, biar nggak ketinggalan.</small><em data-t="nanti">segera hadir</em></div>
+    <div class="baris nanti muncul"><span class="no">04</span><b data-t="halu">Wota Halu</b><small data-t="halu.d">Video call, invoice, semuanya halu. Dompet dijamin aman.</small><em data-t="nanti">segera hadir</em></div>
+    <div class="baris nanti muncul"><span class="no">05</span><b data-t="miu">miuru.notch</b><small data-t="miu.d">Kucing item nongkrong di atas layarmu: lirik, jadwal, sampai waktu salat.</small><em data-t="nanti">segera hadir</em></div>
   </nav>
-  <footer>
-    <p data-t="resmi">Buatan fans, bukan situs resmi JKT48.</p>
-    <div class="bawah">
-      <a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer">X @vxeds0</a>
-      <div class="bahasa" role="group" aria-label="Bahasa / Language"><button type="button" data-l="id">ID</button><button type="button" data-l="en">EN</button><button type="button" data-l="ja" lang="ja">日本語</button></div>
-    </div>
-    <div id="peduli"></div>
-    <div id="disc"></div>
-  </footer>
 </main>
+<footer id="kontak"><div class="isi">
+  <p class="besar muncul"><span data-t="f1">Ada ide atau keluhan?</span><br><a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer" data-t="f2">Colek aja di X ↗</a></p>
+  <div id="peduli"></div>
+  <div id="disc"></div>
+  <div class="bawah"><span data-t="resmi">Buatan fans, bukan situs resmi JKT48.</span><a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer">X @vxeds0 ↗</a></div>
+</div></footer>
 <script>
 (function(){
   var T={
-    id:{miu:'miuru.notch','top.d':'JKT48 versi kamu dalam 10 pilihan. Susun, pamerin, siap diprotes.','arsip.d':'Dari sebelum RE:BOOST sampai FIGHT!: show apa aja, siapa yang tampil.','radar.d':'Jadwal show dan status tiket sekali lirik, biar nggak ketinggalan.','halu.d':'Video call, invoice, semuanya halu. Dompet dijamin aman.','miu.d':'Kucing item nongkrong di atas layarmu: lirik, jadwal, sampai waktu salat.',arsip:'Arsip show',radar:'Radar tiket',top:'Top 10',halu:'Wota Halu',nanti:'segera hadir',resmi:'Buatan fans, bukan situs resmi JKT48.'},
-    en:{miu:'miuru.notch','top.d':'Your JKT48 in 10 picks. Build it, show it off, let the debates begin.','arsip.d':'From before RE:BOOST to FIGHT!: which shows, and who was on stage.','radar.d':'Show dates and ticket status at a glance, so you don’t miss out.','halu.d':'Video calls, invoices, all make-believe. Your wallet stays safe.','miu.d':'A black cat on top of your screen: lyrics, schedule, even prayer times.',arsip:'Show archive',radar:'Ticket radar',top:'Top 10',halu:'Wota Halu',nanti:'coming soon',resmi:'Fan-made, not an official JKT48 site.'},
-    ja:{miu:'miuru.notch','top.d':'あなたのJKT48を10個で。作って、見せて、語り合おう。','arsip.d':'RE:BOOST以前からFIGHT!まで。どんな公演で、誰が出たか。','radar.d':'公演日とチケット状況をひと目で。見逃しを防ごう。','halu.d':'ビデオ通話も請求書も、全部妄想。お財布は無事。','miu.d':'画面の上に黒猫。歌詞も予定も礼拝時間も。',arsip:'公演アーカイブ',radar:'チケットレーダー',top:'Top 10',halu:'Wota Halu',nanti:'近日公開',resmi:'ファン制作の非公式サイトです。'}
+    id:{miu:'miuru.notch','top.d':'JKT48 versi kamu dalam 10 pilihan. Susun, pamerin, siap diprotes.','arsip.d':'Dari sebelum RE:BOOST sampai FIGHT!: show apa aja, siapa yang tampil.','radar.d':'Jadwal show dan status tiket sekali lirik, biar nggak ketinggalan.','halu.d':'Video call, invoice, semuanya halu. Dompet dijamin aman.','miu.d':'Kucing item nongkrong di atas layarmu: lirik, jadwal, sampai waktu salat.',arsip:'Arsip show',radar:'Radar tiket',top:'Top 10',halu:'Wota Halu',nanti:'segera hadir',resmi:'Buatan fans, bukan situs resmi JKT48.',live:'buka',k3:'Tanpa iklan, tanpa pelacak.',lede1:'Mainan kecil buatan fans JKT48.',lede2:'Iseng, gratis, dan nggak ada yang jualan.',s1:'proyek',s2:'sudah bisa dibuka',s3:'iklan',s4:'bahasa',h2a:'Semua proyek,',h2b:'satu halaman.',h2k:'5 proyek · 1 live',f1:'Ada ide atau keluhan?',f2:'Colek aja di X ↗',m1:'semua proyek',m3:'colek aku',lihat:'Lihat proyeknya di bawah',cincin:'jeketoy · buatan fans · tidak resmi ·',judul:[['mainan','b'],['kecil','t'],'|',['buatan','t'],['fans','b','a'],'|',['jkt48','t'],['iseng','b']]},
+    en:{miu:'miuru.notch','top.d':'Your JKT48 in 10 picks. Build it, show it off, let the debates begin.','arsip.d':'From before RE:BOOST to FIGHT!: which shows, and who was on stage.','radar.d':'Show dates and ticket status at a glance, so you don’t miss out.','halu.d':'Video calls, invoices, all make-believe. Your wallet stays safe.','miu.d':'A black cat on top of your screen: lyrics, schedule, even prayer times.',arsip:'Show archive',radar:'Ticket radar',top:'Top 10',halu:'Wota Halu',nanti:'coming soon',resmi:'Fan-made, not an official JKT48 site.',live:'open',k3:'No ads, no trackers.',lede1:'Little toys made by JKT48 fans.',lede2:'Just for fun, free, nobody is selling anything.',s1:'projects',s2:'open now',s3:'ads',s4:'languages',h2a:'Every project,',h2b:'one page.',h2k:'5 projects · 1 live',f1:'Got an idea or a complaint?',f2:'Ping me on X ↗',m1:'all projects',m3:'say hi',lihat:'See the projects below',cincin:'jeketoy · fan-made · unofficial ·',judul:[['little','b'],['toys','t'],'|',['made by','t'],['fans','b','a'],'|',['jkt48','t'],['for fun','b']]},
+    ja:{miu:'miuru.notch','top.d':'あなたのJKT48を10個で。作って、見せて、語り合おう。','arsip.d':'RE:BOOST以前からFIGHT!まで。どんな公演で、誰が出たか。','radar.d':'公演日とチケット状況をひと目で。見逃しを防ごう。','halu.d':'ビデオ通話も請求書も、全部妄想。お財布は無事。','miu.d':'画面の上に黒猫。歌詞も予定も礼拝時間も。',arsip:'公演アーカイブ',radar:'チケットレーダー',top:'Top 10',halu:'Wota Halu',nanti:'近日公開',resmi:'ファン制作の非公式サイトです。',live:'開く',k3:'広告なし、追跡なし。',lede1:'JKT48ファンが作った小さなおもちゃ箱。',lede2:'趣味で、無料で、何も売っていません。',s1:'プロジェクト',s2:'公開中',s3:'広告',s4:'言語',h2a:'すべてのプロジェクトを、',h2b:'ひとつのページに。',h2k:'5プロジェクト · 1公開中',f1:'アイデアや不満があれば',f2:'Xで気軽にどうぞ ↗',m1:'プロジェクト',m3:'連絡',lihat:'プロジェクトは下へ',cincin:'jeketoy · fan-made · unofficial ·',judul:[['JKT48','t'],'|',['ファンの','b','a'],'|',['おもちゃ箱','b']]}
   };
   var PEDULI={id:'<section class="peduli pd-home"><h2>Jangan cuma lewat</h2><ul><li><div class="pd-k"><b>Palestina</b></div><p>Tenda kebanjiran, bantuan tipis. Dunia sibuk scroll, kamu jangan.</p><div class="pd-l"><a href="https://www.ochaopt.org/" target="_blank" rel="noopener noreferrer">OCHA</a><a href="https://www.unrwa.org/" target="_blank" rel="noopener noreferrer">UNRWA</a><a href="https://mer-c.org/" target="_blank" rel="noopener noreferrer">MER-C</a></div></li><li><div class="pd-k"><b>Ebola, Kongo</b></div><p>Wabahnya belum terkendali. Nggak masuk FYP bukan berarti nggak ada.</p><div class="pd-l"><a href="https://www.who.int/emergencies/situations/ebola-outbreak---drc-2026" target="_blank" rel="noopener noreferrer">WHO</a><a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">UNICEF</a></div></li><li><div class="pd-k"><b>Hutan kita</b></div><p>Asapnya mulai reda di sebagian daerah, tapi titik api belum padam semua dan yang terdampak masih butuh dukungan.</p><div class="pd-l"><a href="https://www.bnpb.go.id/" target="_blank" rel="noopener noreferrer">BNPB</a><a href="https://www.walhi.or.id/" target="_blank" rel="noopener noreferrer">WALHI</a><a href="https://www.greenpeace.org/indonesia/" target="_blank" rel="noopener noreferrer">Greenpeace Indonesia</a><a href="https://pantaugambut.id/" target="_blank" rel="noopener noreferrer">Pantau Gambut</a></div></li></ul><p class="pd-ajak"><b>Nggak ada duit?</b> Bayarnya pakai berisik: share dari sumber resmi.</p><p class="pd-kecil">Tidak berafiliasi dengan lembaga mana pun di sini. Tautan cuma rujukan, cek dulu sebelum donasi.</p></section>',en:'<section class="peduli pd-home"><h2>Don’t just scroll past</h2><ul><li><div class="pd-k"><b>Palestine</b></div><p>Flooded tents, thin aid. The world is busy scrolling, you don’t have to be.</p><div class="pd-l"><a href="https://www.ochaopt.org/" target="_blank" rel="noopener noreferrer">OCHA</a><a href="https://www.unrwa.org/" target="_blank" rel="noopener noreferrer">UNRWA</a><a href="https://mer-c.org/" target="_blank" rel="noopener noreferrer">MER-C</a></div></li><li><div class="pd-k"><b>Ebola, Congo</b></div><p>The outbreak is not under control. Not trending doesn’t mean not happening.</p><div class="pd-l"><a href="https://www.who.int/emergencies/situations/ebola-outbreak---drc-2026" target="_blank" rel="noopener noreferrer">WHO</a><a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">UNICEF</a></div></li><li><div class="pd-k"><b>Our forests</b></div><p>Smoke is easing in some areas, but not every fire is out and those affected still need support.</p><div class="pd-l"><a href="https://www.bnpb.go.id/" target="_blank" rel="noopener noreferrer">BNPB</a><a href="https://www.walhi.or.id/" target="_blank" rel="noopener noreferrer">WALHI</a><a href="https://www.greenpeace.org/indonesia/" target="_blank" rel="noopener noreferrer">Greenpeace Indonesia</a><a href="https://pantaugambut.id/" target="_blank" rel="noopener noreferrer">Pantau Gambut</a></div></li></ul><p class="pd-ajak"><b>No money?</b> Pay with noise: share official sources.</p><p class="pd-kecil">Not affiliated with any organisation listed here. The links are pointers only, check before donating.</p></section>',ja:'<section class="peduli pd-home"><h2>通り過ぎないで</h2><ul><li><div class="pd-k"><b>パレスチナ</b></div><p>テントは浸水し、支援は足りません。スクロールだけで終わらせないで。</p><div class="pd-l"><a href="https://www.ochaopt.org/" target="_blank" rel="noopener noreferrer">OCHA</a><a href="https://www.unrwa.org/" target="_blank" rel="noopener noreferrer">UNRWA</a><a href="https://mer-c.org/" target="_blank" rel="noopener noreferrer">MER-C</a></div></li><li><div class="pd-k"><b>エボラ(コンゴ)</b></div><p>流行はまだ収まっていません。話題でなくても起きています。</p><div class="pd-l"><a href="https://www.who.int/emergencies/situations/ebola-outbreak---drc-2026" target="_blank" rel="noopener noreferrer">WHO</a><a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">UNICEF</a></div></li><li><div class="pd-k"><b>私たちの森</b></div><p>一部の地域では煙が収まりつつありますが、火はまだ消えきっておらず、被災した人々には支援が必要です。</p><div class="pd-l"><a href="https://www.bnpb.go.id/" target="_blank" rel="noopener noreferrer">BNPB</a><a href="https://www.walhi.or.id/" target="_blank" rel="noopener noreferrer">WALHI</a><a href="https://www.greenpeace.org/indonesia/" target="_blank" rel="noopener noreferrer">Greenpeace Indonesia</a><a href="https://pantaugambut.id/" target="_blank" rel="noopener noreferrer">Pantau Gambut</a></div></li></ul><p class="pd-ajak"><b>お金がなくても、</b>公式情報を広めることはできます。</p><p class="pd-kecil">掲載団体とは無関係です。リンクは参考ですので、寄付の前にご確認ください。</p></section>'};
   var HIDUP={id:'<b>⏳ Nggak selamanya online.</b> Ini proyek fans tanpa pemasukan sama sekali, jadi bisa mati kapan saja. Jangan terlalu bergantung. Mau bantu? DM aku di X <a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer">@vxeds0</a>.',en:'<b>⏳ Not online forever.</b> A fan-made project with no income at all, so it can go offline any time. Please don’t depend on it. Want to help? DM me on X <a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer">@vxeds0</a>.',ja:'<b>⏳ いつまでも公開されるとは限りません。</b> 収益が一切ないファン制作のため、突然終了することがあります。頼りすぎないでください。協力してくださる方はXの<a href="https://x.com/vxeds0" target="_blank" rel="noopener noreferrer">@vxeds0</a>へDMを。'};
@@ -84,16 +204,34 @@ footer a{color:inherit}
   function pakai(l){
     if(!T[l])l='id';
     document.documentElement.lang=l;
-    document.getElementById('single').innerHTML=SINGLE[l];
+    var sg='<span>'+SINGLE[l].replace('🎧 ','')+'</span>';document.getElementById('single').innerHTML='<span class="jalan">'+sg+sg+sg+sg+'</span>';
     document.getElementById('disc').innerHTML=DISC[l];
     document.getElementById('peduli').innerHTML=PEDULI[l];
-    [].forEach.call(document.querySelectorAll('[data-t]'),function(e){e.textContent=T[l][e.getAttribute('data-t')]});
+    [].forEach.call(document.querySelectorAll('[data-t]'),function(e){var v=T[l][e.getAttribute('data-t')];if(typeof v==='string')e.textContent=v});
+    var jd=document.getElementById('judul'),i=0,ln=[[]];T[l].judul.forEach(function(x){if(x==='|')ln.push([]);else ln[ln.length-1].push(x)});
+    jd.innerHTML=ln.map(function(w){return '<span class="ln">'+w.map(function(x){return '<span class="w '+x[1]+(x[2]?' '+x[2]:'')+'"><span style="transition-delay:'+(0.09*i++)+'s">'+x[0]+'</span></span>'}).join('')+'</span>'}).join('');
+    jd.setAttribute('aria-label',T[l].lede1);
     [].forEach.call(document.querySelectorAll('[data-l]'),function(b){var on=b.getAttribute('data-l')===l;b.className=on?'on':'';b.setAttribute('aria-pressed',on)});
     try{localStorage.setItem('home-lang',l)}catch(e){}
   }
   [].forEach.call(document.querySelectorAll('[data-l]'),function(b){b.onclick=function(){pakai(b.getAttribute('data-l'))}});
   var awal=null;try{awal=localStorage.getItem('home-lang')}catch(e){}
   pakai(awal||'id');
+})();
+
+(function(){
+  var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.getElementById('bar');
+  function cek(){bar.classList.toggle('kecil',window.scrollY>40)}
+  window.addEventListener('scroll',cek,{passive:true});cek();
+  setTimeout(function(){document.querySelector('.hero').classList.add('on')},80);
+  var el=[].slice.call(document.querySelectorAll('.muncul'));
+  if(red||!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('on')});return}
+  var n=0;el.forEach(function(e){if(e.classList.contains('baris'))e.style.setProperty('--d',(0.08*(n++))+'s')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  el.forEach(function(e){io.observe(e)});
+  [].forEach.call(document.querySelectorAll('[data-n]'),function(b,k){var to=+b.getAttribute('data-n');if(!to)return;var t0=null;b.textContent='0';
+    setTimeout(function(){requestAnimationFrame(function f(ts){t0=t0||ts;var p=Math.min(1,(ts-t0)/1100);b.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})},700+k*120)});
 })();
 </script>
 </body>
